@@ -22,24 +22,15 @@ Zehua Men, Pavel Smirnov and Manni Duan are with Zhejiang Lab, Hangzhou, Zhejian
 Li Shao is with National Astronomical Observatories, Chinese Academy of Sciences, Beijing, China.
 
 DeCTI uses the following separate libraries and packages:  
-tensorboard
-pytorch
-gzip
-shutil
-numpy
-matplotlib
-pandas
-fitsio
-bisect
-gc
-sklearn
-seaborn
-
-
-
-
-
-
-
-
-
+tensorboard  
+pytorch  
+gzip  
+shutil  
+numpy  
+matplotlib  
+pandas  
+fitsio  
+bisect  
+gc  
+sklearn  
+seaborn  
