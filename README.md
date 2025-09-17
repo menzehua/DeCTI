@@ -9,12 +9,12 @@ This a supervised deep learning way to learn how to remove the Charge Transfer I
 ## Metrics:
 ### Accuracy
 Removal ratio:
-<img src="figs/bias_rratio.png" width="45%" title="bias metrics"> <img src="figs/var_rratio.png" width="45%" title="dispersion metrics">
+<img src="figs/bias_rratio.png" width="40%" title="bias metrics"> <img src="figs/var_rratio.png" width="40%" title="dispersion metrics">
 
 Relative Photometry Error:
-<img src="figs/flux_aperture.png" width="45%" title="aperture flux"> <img src="figs/flux_kron.png" width="45%" title="kron flux">
+<img src="figs/flux_aperture.png" width="40%" title="aperture flux"> <img src="figs/flux_kron.png" width="40%" title="kron flux">
 ### Speed
-<img src="figs/time_consuming.png" width="80%" title="aperture flux">
+<img src="figs/time_consuming.jpeg" width="80%" title="aperture flux">
 ## Dataset:
 One single Model is based on ACS camera and H814W optical filter in a single year, from Hubble Space Telescope (HST).
 All HST filenames are listed in [train](config/train.csv) [validation](config/val.csv) [test](config/test.csv)that can be downloaded with ESA interface;
