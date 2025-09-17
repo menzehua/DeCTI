@@ -3,7 +3,7 @@
 ## Descriptions
 This a supervised deep learning way to learn how to remove the Charge Transfer Inefficiency (CTI) trails caused by defects on CCD imaging sensor;
 
-<img src="figs/vis_lq.png" width="23%"> <img src="figs/vis_pr.png" width="23%"> <img src="figs/vis_gt.png" width="23%"> <img src="figs/vis_value.png" width="23%">
+<img src="figs/vis_lq.png" width="23%" title="RAW"> <img src="figs/vis_pr.png" width="23%" title="prediction"> <img src="figs/vis_gt.png" width="23%" title="ground truth"> <img src="figs/vis_value.png" width="23%" title="value compare">
 ## Metrics:
 ### Accuracy
 ### Speed
