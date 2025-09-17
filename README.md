@@ -6,13 +6,15 @@ This a supervised deep learning way to learn how to remove the Charge Transfer I
 <img src="figs/vis_lq.png" width="23%" title="RAW"> <img src="figs/vis_pr.png" width="23%" title="prediction"> <img src="figs/vis_gt.png" width="23%" title="ground truth"> <img src="figs/vis_value.png" width="23%" title="value compare">
 ## Architecture
 <img src="figs/DeCTI.png" width="80%" title="Architecture">
-## Metrics:
-### Accuracy
-Removal ratio:
-<img src="figs/bias_rratio.png" width="20%" title="bias metrics"> <img src="figs/var_rratio.png" width="20%" title="dispersion metrics">
 
-Relative Photometry Error:
-<img src="figs/flux_aperture.png" width="30%" title="aperture flux"> <img src="figs/flux_kron.png" width="30%" title="kron flux">
+## Metrics:
+
+### Accuracy
+Removal ratio:  
+<img src="figs/bias_rratio.png" width="40%" title="bias metrics"> <img src="figs/var_rratio.png" width="40%" title="dispersion metrics">
+
+Relative Photometry Error:  
+<img src="figs/flux_aperture.png" width="40%" title="aperture flux"> <img src="figs/flux_kron.png" width="40%" title="kron flux">
 ### Speed
 <img src="figs/time_consuming.jpeg" width="80%" title="aperture flux">
 
