@@ -19,7 +19,7 @@ conda env update -f environment.yaml
 ## Citing This Work
 Under Review by Transactions on Image Processing (TIP), will be shared later;
 
-## Acknowledgements:
+## Acknowledgements
 This research is based on observations made with the NASA/ESA Hubble Space Telescope obtained from the Mikulski Archive for Space Telescopes (MAST). STScI is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS5-26555.
 
 This work is supported by the China Manned Space Program through its Space Application System.
@@ -40,4 +40,7 @@ fitsio
 bisect  
 gc  
 sklearn  
-seaborn  
+seaborn
+
+## Third-party Software
+Use of the third-party software, libraries or code referred to in the [Acknowledgements](#Acknowledgements) section above may be governed by separate terms and conditions or license provisions. Your use of the third-party software, libraries or code is subject to any such terms and you should check that you can comply with any applicable restrictions or terms and conditions before use
