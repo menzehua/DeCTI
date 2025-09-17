@@ -17,7 +17,7 @@ Relative Photometry Error:
 
 ## Dataset:
 One single Model is based on ACS camera and H814W optical filter in a single year, from Hubble Space Telescope (HST).
-All HST filenames are listed in [train](config/train.csv) [validation](config/val.csv) [test](config/test.csv)that can be downloaded with ESA interface;  
+All HST filenames are listed in [train](config/train.csv) [validation](config/val.csv) [test](config/test.csv)that can be downloaded with [astroquery](https://astroquery.readthedocs.io/en/latest/esa/hubble/hubble.html);  
 ## Dependency
 All dependencies are listed in [environment.yaml](environment.yaml),  
 ```bash
@@ -46,6 +46,7 @@ fitsio
 bisect  
 gc  
 sklearn  
-seaborn  
+seaborn
+astroquery
 ## Third-party Software
 Use of the third-party software, libraries or code referred to in the [Acknowledgements](#Acknowledgements) section above may be governed by separate terms and conditions or license provisions. Your use of the third-party software, libraries or code is subject to any such terms and you should check that you can comply with any applicable restrictions or terms and conditions before use
