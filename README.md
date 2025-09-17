@@ -20,7 +20,8 @@ This work is supported by the China Manned Space Program through its Space Appli
 DeCTI's release was made possible by the invaluable contributions of the following people:
 Zehua Men, Pavel Smirnov and Manni Duan are with Zhejiang Lab, Hangzhou, Zhejiang, China.
 Li Shao is with National Astronomical Observatories, Chinese Academy of Sciences, Beijing, China.
-DeCTI uses the following separate libraries and packages:
+
+DeCTI uses the following separate libraries and packages:  
 tensorboard
 pytorch
 gzip
