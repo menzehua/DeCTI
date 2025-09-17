@@ -1,18 +1,15 @@
 # CSST 去噪模型: DeCTI（Denoising Model for CSST: DeCTI）
 
 ## Descriptions
-This a supervised deep learning way to learn how to remove the Charge Transfer Inefficiency (CTI) trails caused by defects on CCD imaging sensor;
-
+This a supervised deep learning way to learn how to remove the Charge Transfer Inefficiency (CTI) trails caused by defects on CCD imaging sensor;  
 <img src="figs/vis_lq.png" width="23%" title="RAW"> <img src="figs/vis_pr.png" width="23%" title="prediction"> <img src="figs/vis_gt.png" width="23%" title="ground truth"> <img src="figs/vis_value.png" width="23%" title="value compare">
 ## Architecture
 <img src="figs/DeCTI.png" width="80%" title="Architecture">
 
-## Metrics:
-
+## Metrics:  
 ### Accuracy
 Removal ratio:  
-<img src="figs/bias_rratio.png" width="40%" title="bias metrics"> <img src="figs/var_rratio.png" width="40%" title="dispersion metrics">
-
+<img src="figs/bias_rratio.png" width="40%" title="bias metrics"> <img src="figs/var_rratio.png" width="40%" title="dispersion metrics">  
 Relative Photometry Error:  
 <img src="figs/flux_aperture.png" width="40%" title="aperture flux"> <img src="figs/flux_kron.png" width="40%" title="kron flux">
 ### Speed
@@ -20,17 +17,14 @@ Relative Photometry Error:
 
 ## Dataset:
 One single Model is based on ACS camera and H814W optical filter in a single year, from Hubble Space Telescope (HST).
-All HST filenames are listed in [train](config/train.csv) [validation](config/val.csv) [test](config/test.csv)that can be downloaded with ESA interface;
-
+All HST filenames are listed in [train](config/train.csv) [validation](config/val.csv) [test](config/test.csv)that can be downloaded with ESA interface;  
 ## Dependency
 All dependencies are listed in [environment.yaml](environment.yaml),  
 ```bash
 conda env update -f environment.yaml
-```
-
+```  
 ## Citing This Work
-Under Review by Transactions on Image Processing (TIP), will be shared later;
-
+Under Review by Transactions on Image Processing (TIP), will be shared later;  
 ## Acknowledgements
 This research is based on observations made with the NASA/ESA Hubble Space Telescope obtained from the Mikulski Archive for Space Telescopes (MAST). STScI is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS5-26555.
 
@@ -52,7 +46,6 @@ fitsio
 bisect  
 gc  
 sklearn  
-seaborn
-
+seaborn  
 ## Third-party Software
 Use of the third-party software, libraries or code referred to in the [Acknowledgements](#Acknowledgements) section above may be governed by separate terms and conditions or license provisions. Your use of the third-party software, libraries or code is subject to any such terms and you should check that you can comply with any applicable restrictions or terms and conditions before use
