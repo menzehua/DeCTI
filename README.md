@@ -1,3 +1,5 @@
 # CSST 去噪模型: DeCTI
-Transformer Based Charge Transfer Inefficency Correction
+# Denoising Model for CSST: DeCTI
+## Descriptions
+## Dependency
 [说明](README.md)
