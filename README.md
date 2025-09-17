@@ -15,10 +15,10 @@ All dependencies are list in [](environment.yaml),
 Under Review by Transactions on Image Processing (TIP), will be shared later;
 
 ## Acknowledgements:
-This research is based on observations made with the NASA/ESA Hubble Space Telescope obtained from the Mikulski Archive for Space Telescopes (MAST). STScI is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS5-26555.
-This work is supported by the China Manned Space Program through its Space Application System.
-DeCTI's release was made possible by the invaluable contributions of the following people:
-Zehua Men, Pavel Smirnov and Manni Duan are with Zhejiang Lab, Hangzhou, Zhejiang, China.
+This research is based on observations made with the NASA/ESA Hubble Space Telescope obtained from the Mikulski Archive for Space Telescopes (MAST). STScI is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS5-26555.  
+This work is supported by the China Manned Space Program through its Space Application System.  
+DeCTI's release was made possible by the invaluable contributions of the following people:  
+Zehua Men, Pavel Smirnov and Manni Duan are with Zhejiang Lab, Hangzhou, Zhejiang, China.  
 Li Shao is with National Astronomical Observatories, Chinese Academy of Sciences, Beijing, China.
 
 DeCTI uses the following separate libraries and packages:  
