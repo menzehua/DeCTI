@@ -3,12 +3,15 @@
 ## Descriptions
 This a supervised deep learning way to learn how to remove the Charge Transfer Inefficiency (CTI) trails caused by defects on CCD imaging sensor;
 
+## Metrics:
+### Accuracy
+### Speed
 ## Dataset:
 One single Model is based on ACS camera and H814W optical filter in a single year, from Hubble Space Telescope (HST).
 All HST filenames are listed in [train](config/train.csv) [validation](config/val.csv) [test](config/test.csv)that can be downloaded with ESA interface;
 
 ## Dependency
-All dependencies are list in [environment.yaml](environment.yaml),  
+All dependencies are listed in [environment.yaml](environment.yaml),  
 ```bash
 conda env update -f environment.yaml
 ```
