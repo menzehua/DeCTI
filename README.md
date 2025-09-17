@@ -4,9 +4,17 @@
 This a supervised deep learning way to learn how to remove the Charge Transfer Inefficiency (CTI) trails caused by defects on CCD imaging sensor;
 
 <img src="figs/vis_lq.png" width="23%" title="RAW"> <img src="figs/vis_pr.png" width="23%" title="prediction"> <img src="figs/vis_gt.png" width="23%" title="ground truth"> <img src="figs/vis_value.png" width="23%" title="value compare">
+## Architecture
+<img src="figs/DeCTI.png" width="90%" title="Architecture">
 ## Metrics:
 ### Accuracy
+Removal ratio:
+<img src="figs/bias_rratio.png" width="45%" title="bias metrics"> <img src="figs/var_rratio.png" width="45%" title="dispersion metrics">
+
+Relative Photometry Error:
+<img src="figs/flux_aperture.png" width="45%" title="aperture flux"> <img src="figs/flux_kron.png" width="45%" title="kron flux">
 ### Speed
+<img src="figs/time_consuming.png" width="80%" title="aperture flux">
 ## Dataset:
 One single Model is based on ACS camera and H814W optical filter in a single year, from Hubble Space Telescope (HST).
 All HST filenames are listed in [train](config/train.csv) [validation](config/val.csv) [test](config/test.csv)that can be downloaded with ESA interface;
