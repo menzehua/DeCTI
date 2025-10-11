@@ -30,7 +30,8 @@ training.
   (left) Bias Metrics: Measure the central tendency of the removal ratio.  (right) Dispersion Metrics: Measure the spread of the removal ratio
 <img src="figs/bias_rratio.png" width="40%" title="bias metrics"> <img src="figs/var_rratio.png" width="40%" title="dispersion metrics">  
 
-- Relative Photometry Error: 
+- Relative Photometry Error:
+  
   Relative photometry error, a common astronomical indicator, is measured on 2-D stamps cropped from the images. It quantifies the flux error relative to the ground-truth flux.
   Images from the Hubble Space Telescope (HST) observed in 2005 and 2012 are trained and inferred separately. Two flux-measurement methods—aperture and Kron—are adopted. The distributions of errors for multiple objects are shown below.
 
