@@ -32,6 +32,7 @@ conda env update -f environment.yaml
   note    = {under review},
   year    = {2025}
 }
+```
 ## Acknowledgements
 This research is based on observations made with the NASA/ESA Hubble Space Telescope obtained from the Mikulski Archive for Space Telescopes (MAST). STScI is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS5-26555.
 
