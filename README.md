@@ -5,6 +5,7 @@ This is a supervised deep learning pipeline for correcting Charge Transfer Ineff
 
 Each year, CSST acquires roughly two million images that require CTI correction, creating an urgent need for a method that is both highly accurate and exceptionally fast.
 The results show that, compared to traditional SOTA, DeCTI achieves a roughly 2x improvement in accuracy while operating 100x faster. 
+
 <img src="figs/vis_lq.png" width="23%" title="RAW"> <img src="figs/vis_pr.png" width="23%" title="prediction"> <img src="figs/vis_gt.png" width="23%" title="ground truth"> <img src="figs/vis_value.png" width="23%" title="value compare">
 ## 2. Architecture
 The network architecture combines convolutional layers for local feature extraction with window-based transformer encoders for modeling long-range charge trailing.
