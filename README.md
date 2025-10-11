@@ -27,7 +27,7 @@ training.
   Removal ratio is an accuracy metric defined by us, which is measured on column-wise vectors. This ratio measures the fraction of the remaining error after
   the CTI correction; lower values indicate better correction.
 
-  (left) Bias Metrics: Measure the central tendency of the removal ratio.  (right) Dispersion Metrics: Measure the spread of the removal ratio
+  (left) Bias Metrics: Measure the central tendency of the removal ratio.    (right) Dispersion Metrics: Measure the spread of the removal ratio
 <img src="figs/bias_rratio.png" width="40%" title="bias metrics"> <img src="figs/var_rratio.png" width="40%" title="dispersion metrics">  
 
 - Relative Photometry Error:
@@ -37,7 +37,7 @@ training.
 
   The horizontal axis denotes the ground-truth flux; dots and lines on the vertical axis represent the bias and standard deviation of the relative photometry error, respectively.
   
-  (left) Aperture flux, 2005 data  (second left) Aperture flux, 2012 data  (second right) Kron flux, 2005 data  (right) Kron flux, 2012 data
+  (left) Aperture flux, 2005 data    (second left) Aperture flux, 2012 data    (second right) Kron flux, 2005 data    (right) Kron flux, 2012 data
 <img src="figs/flux_aperture.png" width="40%" title="aperture flux"> <img src="figs/flux_kron.png" width="40%" title="kron flux">
 ### Speed
 <img src="figs/time_consuming.jpeg" width="80%" title="aperture flux">
