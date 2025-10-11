@@ -2,11 +2,21 @@
 
 ## 1. Introduction
 This is a supervised deep learning pipeline for correcting Charge Transfer Inefficiency (CTI) artifacts in astronomical images, which is caused by defects on CCD imaging sensor;
-The network architecture combines convolutional layers for local feature extraction with transformer encoders for modeling long-range charge trailing trained directly on paired images.
+Each year, CSST acquires roughly two million images that require CTI correction, creating an urgent need for a method that is both highly accurate and exceptionally fast.
 
 The results show that, compared to traditional SOTA, DeCTI achieves a roughly 2x improvement in accuracy while operating 100x faster. 
 <img src="figs/vis_lq.png" width="23%" title="RAW"> <img src="figs/vis_pr.png" width="23%" title="prediction"> <img src="figs/vis_gt.png" width="23%" title="ground truth"> <img src="figs/vis_value.png" width="23%" title="value compare">
 ## 2. Architecture
+The network architecture combines convolutional layers for local feature extraction with window-based transformer encoders for modeling long-range charge trailing.
+
+1) Reformulating CTI correction as a 1-D sequence-tosequence task by treating each column vector as an
+individual sample.
+
+2) Designing a normalization method tailored to astronomical image distributions to stabilize and accelerate
+training.
+
+3) Introducing a hybrid main network that combines CNN layers and 1-D Transformer encoders within fixed windows.
+
 <img src="figs/DeCTI.png" width="80%" title="Architecture">
 
 ## 3. Metrics:  
