@@ -10,13 +10,13 @@ The results show that, compared to traditional SOTA, DeCTI achieves a roughly 2x
 ## 2. Architecture
 The network architecture combines convolutional layers for local feature extraction with window-based transformer encoders for modeling long-range charge trailing.
 
-(1) Reformulating CTI correction as a 1-D sequence-tosequence task by treating each column vector as an
+-Reformulating CTI correction as a 1-D sequence-tosequence task by treating each column vector as an
 individual sample.
 
-(2) Designing a normalization method tailored to astronomical image distributions to stabilize and accelerate
+-Designing a normalization method tailored to astronomical image distributions to stabilize and accelerate
 training.
 
-(3) Introducing a hybrid main network that combines CNN layers and 1-D Transformer encoders within fixed windows.
+-Introducing a hybrid main network that combines CNN layers and 1-D Transformer encoders within fixed windows.
 
 <img src="figs/DeCTI.png" width="80%" title="Architecture">
 
