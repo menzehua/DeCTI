@@ -35,6 +35,7 @@ training.
   Images from the Hubble Space Telescope (HST) observed in 2005 and 2012 are trained and inferred separately. Two flux-measurement methods—aperture and Kron—are adopted. The distributions of errors for multiple objects are shown below.
 
   The horizontal axis denotes the ground-truth flux; dots and lines on the vertical axis represent the bias and standard deviation of the relative photometry error, respectively.
+  
   (left) Aperture flux, 2005 data  (second left) Aperture flux, 2012 data  (second right) Kron flux, 2005 data  (right) Kron flux, 2012 data
 <img src="figs/flux_aperture.png" width="40%" title="aperture flux"> <img src="figs/flux_kron.png" width="40%" title="kron flux">
 ### Speed
