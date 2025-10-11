@@ -24,7 +24,7 @@ All dependencies are listed in [environment.yaml](environment.yaml),
 conda env update -f environment.yaml
 ```  
 ## Citing This Work
-The paper is under review by Transactions on Image Processing (TIP) and will be shared later. 
+<pre>Z. Men, L. Shao, P. Smirnov, M. Duan,"DeCTI: Transformer-based Charge Transfer Inefficiency correction," <i>IEEE Trans. Image Process.</i>, Under review. 2025.</pre>
 ## Acknowledgements
 This research is based on observations made with the NASA/ESA Hubble Space Telescope obtained from the Mikulski Archive for Space Telescopes (MAST). STScI is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS5-26555.
 
