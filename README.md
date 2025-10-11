@@ -24,6 +24,7 @@ All dependencies are listed in [environment.yaml](environment.yaml),
 conda env update -f environment.yaml
 ```  
 ## Citation
+```latex
 @article{Men2025ChargeTransfer,
   author  = {Z. Men, L. Shao, P. Smirnov, M. Duan},
   title   = {DeCTI: Transformer-based Charge Transfer Inefficiency correction},
