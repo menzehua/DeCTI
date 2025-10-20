@@ -1,58 +1,76 @@
-# CSST 去噪模型: DeCTI（Denoising Model for CSST: DeCTI）
+# DeCTI: Transformer-based Charge Transfer Inefficiency correction for CSST
 
 ## 1. Introduction
-This is a supervised deep learning pipeline for correcting Charge Transfer Inefficiency (CTI) artifacts in astronomical images, which is caused by defects on CCD imaging sensor;
+Charge Transfer Inefficiency (CTI) is a common defect in Charge-Coupled Device (CCD) imaging sensors, leading to charge trailing and signal distortion in astronomical images. The Chinese Space Station Telescope (CSST) acquires roughly two million images annually, all of which require CTI correction——posing an urgent demand for a solution that is both accurate and computationally efficient.
 
-Each year, CSST acquires roughly two million images that require CTI correction, creating an urgent need for a method that is both highly accurate and exceptionally fast.
-The results show that, compared to traditional SOTA, DeCTI achieves a roughly 2x improvement in accuracy while operating 100x faster. 
+To address this challenge, we introduce **DeCTI**, a novel supervised deep learning pipeline designed to effectively mitigate CTI artifacts in astronomical images. As illustrated in the Figures below, DeCTI restores the degraded raw image (left) to a high-fidelity reconstruction (middle) that closely matches the “ground truth” image (right). Compared with traditional state-of-the-art approaches, DeCTI achieves approximately **2× higher correction accuracy** and is over **100× faster**, enabling large-scale, high-fidelity image restoration.
 
-<img src="figs/vis_lq.png" width="23%" title="RAW"> <img src="figs/vis_pr.png" width="23%" title="prediction"> <img src="figs/vis_gt.png" width="23%" title="ground truth"> <img src="figs/vis_value.png" width="23%" title="value compare">
+<div align="center">
+<img src="figs/vis_lq.png" width="23%" title="RAW"> <img src="figs/vis_pr.png" width="23%" title="prediction"> <img src="figs/vis_gt.png" width="23%" title="ground truth"> 
+</div>
+
 ## 2. Architecture
-The network architecture combines convolutional layers for local feature extraction with transformer encoders for modeling long-range charge trailing.
+The DeCTI architecture integrates convolutional layers for local feature extraction with Transformer encoders to model long-range charge trailing patterns. Key design highlights:
 
-- Reformulating CTI correction as a 1-D sequence-tosequence task by treating each column vector as an
-individual sample.
+- Reformulating CTI correction as a 1-D sequence-to-sequence task by treating each column vector as an independent sample.
 
-- Designing a normalization method tailored to astronomical image distributions to stabilize and accelerate
-training.
+- Introducing a custom normalization method tailored to astronomical image distributions to stabilize and accelerate training.
 
-- Introducing a hybrid main network that combines CNN layers and 1-D Transformer encoders within fixed windows.
+- Employing a hybrid architecture that combines CNN layers and 1-D Transformer encoders within fixed processing windows.
 
+<div align="center">
 <img src="figs/DeCTI.png" width="80%" title="Architecture">
+</div>
 
-## 3. Metrics:  
-### Accuracy
-- Removal ratio:
-  
-  Removal ratio is an accuracy metric defined by us, which is measured on column-wise vectors. This ratio measures the fraction of the remaining error after
-  the CTI correction; lower values indicate better correction.
+## 3. Evaluation Metrics
+### Removal Ratio
+We define the **removal ratio**, a custom metric designed to quantify residual CTI artifacts on a column-wise basis. It measures the fraction of remaining error after correction——**lower values indicate better performance**. From the distribution of removal ratio across multiple samples, we derive **bias** and **dispersion** metrics, which respectively characterize the central tendency and spread of the removal ratio distribution, reflecting both the accuracy and stability of the correction.
 
-  (left) Bias Metrics: Measure the central tendency of the removal ratio.    (right) Dispersion Metrics: Measure the spread of the removal ratio
-
+<div align="center">
 <img src="figs/bias_rratio.png" width="40%" title="bias metrics"> <img src="figs/var_rratio.png" width="40%" title="dispersion metrics">  
+</div>
 
-- Relative Photometry Error:
-  
-  Relative photometry error, a common astronomical indicator, is measured on 2-D stamps cropped from the images. It quantifies the flux error relative to the ground-truth flux.
-  Images from the Hubble Space Telescope (HST) observed in 2005 and 2012 are trained and inferred separately. Two flux-measurement methods—aperture and Kron—are adopted. The distributions of errors for multiple objects are shown below.
+### Relative Photometry Error
+**Relative photometry error** is a standard astronomical metric that quantifies the flux deviation relative to the ground-truth flux on cropped 2-D image stamps. Models are trained and inferred separately on Hubble Space Telescope (HST) images observed in 2005 and 2012. Two flux-measurement methods—**Aperture** and **Kron**—are adopted for comparison. 
 
-  The horizontal axis denotes the ground-truth flux; dots and lines on the vertical axis represent the bias and standard deviation of the relative photometry error, respectively.
-  
-  (left) Aperture flux, 2005 data    (second left) Aperture flux, 2012 data    (second right) Kron flux, 2005 data    (right) Kron flux, 2012 data
+The error distributions for multiple objects are shown below. The horizontal axis denotes the ground-truth flux, while the dots and lines on the vertical axis represent the bias and standard deviation of the relative photometry error, respectively. From left to right, the panels correspond to: (a) Aperture flux (2005 data), (b) Aperture flux (2012 data), (c) Kron flux (2005 data), and (d) Kron flux (2012 data).
 
+<div align="center">
 <img src="figs/flux_aperture.png" width="40%" title="aperture flux"> <img src="figs/flux_kron.png" width="40%" title="kron flux">
-### Speed
-<img src="figs/time_consuming.jpeg" width="80%" title="aperture flux">
+</div>
 
-## 4. Dataset:
-One single Model is based on ACS camera and H814W optical filter in a single year, from Hubble Space Telescope (HST).
-All HST filenames are listed in [train](config/remove_j92t/train.csv) [validation](config/remove_j92t/val.csv) [test](config/remove_j92t/test.csv) that can be downloaded with "observation_id" by [astroquery](https://astroquery.readthedocs.io/en/latest/esa/hubble/hubble.html);  
+### Speed
+
+
+
+
+<div align="center">
+<img src="figs/time_consuming.jpeg" width="80%" title="aperture flux">
+</div>
+
+## 4. Dataset
+Each model is trained using data from a single year, obtained with the ACS camera and the F814W optical filter on the Hubble Space Telescope (HST).
+
+All HST filenames for training, validation, and testing are listed in the corresponding files: [train](config/remove_j92t/train.csv)↗ [validation](config/remove_j92t/val.csv)↗ [test](config/remove_j92t/test.csv)↗.
+The images can be downloaded using their ```observation_id``` by [astroquery](https://astroquery.readthedocs.io/en/latest/esa/hubble/hubble.html)↗.
+
 ## 5. Dependency
-All dependencies are listed in [environment.yaml](environment.yaml),  
+All software dependencies required to run the project are listed in [environment.yaml](environment.yaml)↗. 
+
+To create or update the Conda environment, run the following command:
+
 ```bash
 conda env update -f environment.yaml
 ```  
-## 6. Citation
+
+Please note that the environment includes all third-party libraries used in this work, including ```tensorboard```, ```pytorch```, ```numpy```, ```matplotlib```, ```pandas```, ```fitsio```, ```scikit-learn```, ```seaborn```, ```astroquery```, etc, all of which are essential for model development and evaluation. Users are encouraged to respect the respective licenses when using these tools.
+
+## 6. License
+This code repository are licensed under the [Apache License 2.0]().
+
+
+## 7. Citation
+If you use this work or the DeCTI code in your research, please cite the following paper:
 ```latex
 @article{Men2025ChargeTransfer,
   author  = {Z. Men, L. Shao, P. Smirnov, M. Duan},
@@ -62,28 +80,7 @@ conda env update -f environment.yaml
   year    = {2025}
 }
 ```
-## 7. Acknowledgements
-This research is based on observations made with the NASA/ESA Hubble Space Telescope obtained from the Mikulski Archive for Space Telescopes (MAST). STScI is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS5-26555.
+## 8. Acknowledgements
+This research is based on observations made with the **NASA/ESA Hubble Space Telescope**, obtained from the **Mikulski Archive for Space Telescopes (MAST)**. STScI is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS5-26555.
 
-This work is supported by the China Manned Space Program through its Space Application System.
-
-DeCTI's release was made possible by the contributions of the following people:  
-Zehua Men, Pavel Smirnov and Manni Duan are with Zhejiang Lab, Hangzhou, Zhejiang, China.  
-Li Shao is with National Astronomical Observatories, Chinese Academy of Sciences, Beijing, China.
-
-DeCTI uses the following separate libraries and packages:  
-tensorboard  
-pytorch  
-gzip  
-shutil  
-numpy  
-matplotlib  
-pandas  
-fitsio  
-bisect  
-gc  
-sklearn  
-seaborn  
-astroquery
-## 8. Third-party Software
-Use of the third-party software, libraries or code referred to in the [Acknowledgements](#Acknowledgements) section above may be governed by separate terms and conditions or license provisions. Your use of the third-party software, libraries or code is subject to any such terms and you should check that you can comply with any applicable restrictions or terms and conditions before use
+This work is supported by the **China Manned Space Program** through its Space Application System.
