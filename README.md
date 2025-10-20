@@ -82,6 +82,7 @@ If you use this work or the DeCTI code in your research, please cite the followi
 ```
 
 ## 8.code structers
+```latex
 csst-DeCTI/
 |
 ├── baseline.sh            //script to train or inference
@@ -105,6 +106,7 @@ csst-DeCTI/
 ├── README.md
 └── utils
     └── tools.py
+```
 
 ## 9. Acknowledgements
 This research is based on observations made with the **NASA/ESA Hubble Space Telescope**, obtained from the **Mikulski Archive for Space Telescopes (MAST)**. STScI is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS5-26555.
