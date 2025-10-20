@@ -81,7 +81,7 @@ If you use this work or the DeCTI code in your research, please cite the followi
 }
 ```
 
-## 8.code structers
+## 8.Code Structer
 ```latex
 csst-DeCTI/
 |
