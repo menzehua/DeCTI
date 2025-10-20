@@ -40,7 +40,7 @@ The error distributions for multiple objects are shown below. The horizontal axi
 </div>
 
 ### Speed
-
+Speed comparison between two existing SOTAs—"arCTIc" and "SimpleCTI" (both running on a single-core CPU)—and our DeCTI, evaluated on 4 GPUs and 16 GPUs, respectively. The rightmost column reports the consuming time for each image, including algorithm computation and I/O.
 
 
 
@@ -80,7 +80,33 @@ If you use this work or the DeCTI code in your research, please cite the followi
   year    = {2025}
 }
 ```
-## 8. Acknowledgements
+
+## 8.code structers
+csst-DeCTI/
+|
+├── baseline.sh            //script to train or inference
+├── config                 //contain the list of filename
+│   └── remove_j92t
+│       ├── test.csv
+│       ├── train.csv
+│       └── val.csv
+├── data_provider          //IO module for reorganizing datas
+│   ├── data_factory.py
+│   ├── data_loader.py
+├── environment.yaml       //conda envs
+├── LICENSE
+├── main.py                //entry for project
+├── models
+│   ├── DeCTIAbla.py       //core model of DeCTI
+│   ├── DnCNN.py           //other sota mehod
+├── pipeline
+│   ├── exp_basic.py       //initialization for the project
+│   ├── exp_main.py        //pipeline for the project
+├── README.md
+└── utils
+    └── tools.py
+
+## 9. Acknowledgements
 This research is based on observations made with the **NASA/ESA Hubble Space Telescope**, obtained from the **Mikulski Archive for Space Telescopes (MAST)**. STScI is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS5-26555.
 
 This work is supported by the **China Manned Space Program** through its Space Application System.

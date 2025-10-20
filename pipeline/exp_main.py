@@ -367,7 +367,7 @@ class Exp_Main(Exp_Basic):
             state_dict = torch.load(os.path.join(model_path, f'checkpoint_epoch_{str(checkpts)}.pth'))
 
         self.model.module.load_state_dict(state_dict)
-        print(self.model.state_dict().keys())  # 当前模型的键
+        print(self.model.state_dict().keys())
         print(state_dict.keys())
 
         nbatch_per_img = self.cal_nbatch_per_img(os.path.join(self.args.data_path, test_gt[0]), batchsize=self.args.batch_size, left_quarter=self.args.left_quarter)
@@ -547,14 +547,14 @@ class Exp_Main(Exp_Basic):
 
                     plt.hist(rela_statis, range=(0, 2), bins=1000, log=True, color='blue')
                     plt.axvline(mode, color='r', linestyle='--', alpha=0.5)
-                    # 添加注释
-                    plt.title(f"Network: {self.args.model} Year: {self.args.obs_year[0]}")
-                    # 使用相对坐标 (axes coordinates) 避免重叠
-                    x_pos = 0.95  # 右侧 95% 位置 (0-1范围)
-                    y_start = 0.95  # 从顶部95%开始 (0-1范围)
-                    y_offset = 0.05  # 固定行间距 (5% 图形高度)
 
-                    # 获取当前坐标系
+                    plt.title(f"Network: {self.args.model} Year: {self.args.obs_year[0]}")
+                    # use relative coordinates (axes coordinates) avoid overlap
+                    x_pos = 0.95  # right 95% loc (range 0-1)
+                    y_start = 0.95  # start from 95% to the top (range 0-1)
+                    y_offset = 0.05  # fix distance between lines (5% of height of image)
+
+                    # get current axis
                     ax = plt.gca()
 
                     ax.text(x_pos, y_start,                f"mean     :   {global_mean:.2f}", 

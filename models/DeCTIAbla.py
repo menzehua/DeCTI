@@ -18,21 +18,21 @@ class PixelShuffle1D(nn.Module):
     def forward(self, x):
         batch_size, in_channels, in_length = x.size()
         
-        # 检查通道数是否可被上采样因子整除
+        # Check whether the number of channels is divisible by the upsampling factor.
         assert in_channels % self.upscale_factor == 0, \
             f"Input channels must be divisible by upscale factor, got {in_channels} and {self.upscale_factor}"
         
-        # 计算输出通道数
+        # calculate number of output channels
         out_channels = in_channels // self.upscale_factor
         out_length = in_length * self.upscale_factor
         
-        # 重塑张量: [B, C, L] -> [B, C//r, r, L]
+        # reshape tensor: [B, C, L] -> [B, C//r, r, L]
         x = x.view(batch_size, out_channels, self.upscale_factor, in_length)
         
-        # 置换维度: [B, C//r, r, L] -> [B, C//r, L, r]
+        # reverse dimension: [B, C//r, r, L] -> [B, C//r, L, r]
         x = x.permute(0, 1, 3, 2)
         
-        # 合并最后两个维度: [B, C//r, L, r] -> [B, C//r, L*r]
+        # merge the last two dimension: [B, C//r, L, r] -> [B, C//r, L*r]
         x = x.reshape(batch_size, out_channels, out_length)
         
         return x
@@ -108,16 +108,16 @@ class WindowAttention1D(nn.Module):
         head_dim = dim // num_heads
         self.scale = qk_scale or head_dim ** -0.5
 
-        # 一维相对位置编码表
+        # 1-D relative position encoding(rpe) table
         self.rpe = rpe
         if self.rpe:
             self.relative_position_bias_table = nn.Parameter(torch.zeros(2 * window_size - 1, num_heads))  # [2M-1, nH]
             nn.init.trunc_normal_(self.relative_position_bias_table, std=.02)
 
-        # 生成相对位置索引
+        # generate indexes of rpe
         coords = torch.arange(window_size)
         relative_coords = coords[:, None] - coords[None, :]  # [M, M]
-        relative_coords += window_size - 1  # 转换到0~2M-2范围
+        relative_coords += window_size - 1  # transform to range 0~2M-2
         self.register_buffer("relative_position_index", relative_coords)
 
         self.qkv = nn.Linear(dim, dim * 3, bias=qkv_bias)
@@ -135,7 +135,7 @@ class WindowAttention1D(nn.Module):
         q = q * self.scale
         attn = (q @ k.transpose(-2, -1))  # [B_, num_heads, N, N]
 
-        # 添加相对位置偏置
+        # Add bias to rpe
         if self.rpe:
             relative_position_bias = self.relative_position_bias_table[
                 self.relative_position_index.view(-1)].view(
@@ -182,13 +182,13 @@ class SwinTransformerBlock1D(nn.Module):
         shortcut = x
         x = self.norm1(x)
 
-        # 窗口划分/windows divide
+        # windows divide
         x_windows = window_partition_1d(x, self.window_size)  # [nW*B, M, C]
         
-        # 窗口注意力/window-based attention
+        # window-based attention
         attn_windows = self.attn(x_windows)
 
-        # 合并窗口
+        # merge windows
         x = window_reverse_1d(attn_windows, self.window_size, L)  # [B, L, C]
             
         x = shortcut + self.drop_path(x)
